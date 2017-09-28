@@ -88,8 +88,6 @@ function keyselector(t)
 end
 
 function Base.sortperm(t::IndexedTable, by)
-    @show fieldnames(columns(t)), by
-
     canonorder = map(i->colindex(eltype(keys(t)), eltype(t), i), by)
 
     sorted_cols = 0
