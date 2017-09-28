@@ -279,6 +279,7 @@ end
 as(f, src, dest) = As(f, src, dest)
 as(src, dest) = as(identity, src, dest)
 as(xs::AbstractArray, dest) = as(xs, nothing, dest)
+as(name::Symbol) = x -> as(x, name)
 
 _name(x::As) = x.dest
 function column(t::Union{IndexedTable, AbstractVector}, a::As)
