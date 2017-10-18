@@ -269,7 +269,7 @@ function merge!(x::IndexedTable{T,D}, y::IndexedTable{S,D}; agg = IndexedTables.
 end
 # merge! without flush!
 function _merge!(dst::IndexedTable, src::IndexedTable, f)
-    if isless(dst.index[end], src.index[1])
+    if length(dst.index)==0 || isless(dst.index[end], src.index[1])
         append!(dst.index, src.index)
         append!(dst.data, src.data)
     else
